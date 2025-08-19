@@ -1,0 +1,14 @@
+name: Deploy Wordpress App
+on: push 
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: image_tag
+      - name: Extract image tag from artifact
+        run: | 
+          IMAGE_TAG=$(cat image_tag.txt) 
+          echo "Image tag: $IMAGE_TAG"
