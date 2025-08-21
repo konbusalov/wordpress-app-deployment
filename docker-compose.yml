@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   wordpress:
-    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:28
+    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:29
     container_name: wordpress
     volumes:
       - ./config/wordpress.sites-available.default:/etc/nginx/conf.d/default.conf
