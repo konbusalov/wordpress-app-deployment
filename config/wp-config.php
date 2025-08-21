@@ -17,7 +17,6 @@
  *
  * @package WordPress
  */
-
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', getenv('WORDPRESS_DB_NAME'));
@@ -90,12 +89,18 @@ define( 'WP_DEBUG_DISPLAY', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('WP_HOME', 'https://wordpresstrain.ddns.net');
-define('WP_SITEURL', 'https://wordpresstrain.ddns.net');
-
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
     $_SERVER['HTTPS'] = 'on';
 }
+
+// Set WordPress Home/Site URL
+define('WP_HOME', 'https://wordpresstrain.ddns.net');
+define('WP_SITEURL', 'https://wordpresstrain.ddns.net');
+
+// Force SSL for the admin panel (optional but recommended)
+define('FORCE_SSL_ADMIN', true);
+
+
 
 
 /* That's all, stop editing! Happy publishing. */
