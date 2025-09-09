@@ -2,11 +2,9 @@ version: '3.8'
 
 services:
   wordpress:
-    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:42
+    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:dev-42
     container_name: wordpress
     volumes:
-      - ./config/wordpress.sites-available.default:/etc/nginx/conf.d/default.conf
-      - ./config/wordpress-nginx.conf:/etc/nginx/nginx.conf
       - ./config/wp-config.php:/var/www/html/wp-config.php
       - ./config/www.conf:/etc/php/8.1/fpm/pool.d/www.conf
     environment:
@@ -27,7 +25,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./config/proxy.sites-available.default:/etc/nginx/conf.d/default.conf
+      - ./config/default.conf:/etc/nginx/conf.d/default.conf
       - ./config/nginx.conf:/etc/nginx/nginx.conf
       - ./certs/letsencrypt:/etc/letsencrypt
       - ./config/www.conf:/etc/php/8.1/fpm/pool.d/www.conf
