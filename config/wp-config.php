@@ -94,8 +94,8 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 }
 
 // Set WordPress Home/Site URL
-define('WP_HOME', 'https://wordpresstrain.ddns.net');
-define('WP_SITEURL', 'https://wordpresstrain.ddns.net');
+define('WP_HOME', 'https://konbusalov.ddns.net');
+define('WP_SITEURL', 'https://konbusalov.ddns.net');
 
 // Force SSL for the admin panel (optional but recommended)
 define('FORCE_SSL_ADMIN', true);
