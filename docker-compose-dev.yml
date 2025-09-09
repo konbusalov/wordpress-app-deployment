@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   wordpress:
-    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:dev-42
+    image: 363174885355.dkr.ecr.eu-north-1.amazonaws.com/wordpress-app:dev-7
     container_name: wordpress
     volumes:
       - ./config/wp-config.php:/var/www/html/wp-config.php
