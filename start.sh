@@ -12,7 +12,7 @@ fi
 
 export MYSQL_USER=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_USER')
 export MYSQL_PASSWORD=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_PASSWORD')
-export MYSQL_DATABASE=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_ROOT_PASSWORD')
+export MYSQL_ROOT_PASSWORD=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_ROOT_PASSWORD')
 export MYSQL_DATABASE=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_DATABASE')
 
 
