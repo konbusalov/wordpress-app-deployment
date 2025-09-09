@@ -18,9 +18,9 @@ export MYSQL_DATABASE=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_DATABASE')
 
 echo "Secrets exported. Starting Docker Compose..."
 
-docker-compose -f ./docker-compose.yml down
+docker-compose -f ./docker-compose-dev.yml down
 docker system prune -a -f --filter "label!=keep=true"
-docker-compose -f ./docker-compose.yml up -d
+docker-compose -f ./docker-compose-dev.yml up -d
 
 #Remove Secrets from Environment
 unset MYSQL_USER
