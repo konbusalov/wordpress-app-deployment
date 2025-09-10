@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
     restart: always
-    
+
   proxy:
     image: nginx:stable
     container_name: proxy
@@ -34,7 +34,7 @@ services:
       - public_net
       - private_net
     restart: always
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst '$$DNS_RECORD' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
     
   db:
     image: mariadb:latest
