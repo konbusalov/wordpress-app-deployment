@@ -28,7 +28,7 @@ services:
     volumes:
       - ./config/default.conf.template:/etc/nginx/conf.d/default.conf.template
       - ./config/nginx.conf:/etc/nginx/nginx.conf
-      - ./certs/letsencryptprod:/etc/letsencrypt
+      - ./certs/letsencryptdev:/etc/letsencrypt
       - ./config/www.conf:/etc/php/8.1/fpm/pool.d/www.conf
     networks:
       - public_net
