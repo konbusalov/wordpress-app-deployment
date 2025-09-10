@@ -1,5 +1,6 @@
 #!/bin/bash
 SECRET_MANAGER_SECRET_ID=$(cat .env | grep SECRET_MANAGER_SECRET_ID | cut -d '=' -f 2)
+ENV=$(cat .env | grep ENV | cut -d '=' -f 2)
 
 echo "Fetching secrets from AWS Secrets Manager..."
 
@@ -18,9 +19,9 @@ export MYSQL_DATABASE=$(echo "$SECRETS_JSON" | jq -r '.MYSQL_DATABASE')
 
 echo "Secrets exported. Starting Docker Compose..."
 
-docker-compose -f ./docker-compose-dev.yml down
+docker-compose -f ./docker-compose-$ENV.yml down
 docker system prune -a -f --filter "label!=keep=true"
-docker-compose -f ./docker-compose-dev.yml up -d
+docker-compose -f ./docker-compose-$ENV.yml up -d
 
 #Remove Secrets from Environment
 unset MYSQL_USER
